@@ -14,17 +14,26 @@
       <p class="crumbs"><a href="../index.html">Таблица статей</a> · Big Data Platform · Отказоустойчивая Big Data Platform без простоя выдачи</p>
       <p class="meta">№ 22 / 22 · Big Data Platform · Data Architect · Решение · Cluster · —</p>
       <h1>Как построить отказоустойчивую Big Data-платформу без простоя</h1>
-      <p class="lead">Для аналитики час простоя — неприятность. Для скоринга и антифрода — остановка бизнеса. Отказоустойчивость платформы данных проектируют от RPO/RTO критичных выдач, а не от желания «кластер в двух ЦОД».</p>
+      <p class="lead">Zero Downtime на «Дижитрек»: HA NameNode/YARN/Hive/Patroni, rolling restart с drain и health-check, guardrails SRE. Прод на 40 узлах и 1 ПБ+ без окна простоя.</p>
       <details class="semantics">
-        <summary>Семантика кластера · 30 фраз</summary>
-        <ul class="tags"><li>надёжность данных</li><li>data reliability</li><li>надежность платформы</li><li>надежность сервиса</li><li>сервер авто</li><li>автоматизация серверов</li><li>серверная инфраструктура</li><li>SRE практики</li><li>эксплуатация кластера</li><li>управление кластером</li><li>отказоустойчивая Big Data платформа</li><li>простой скоринга недопустим</li><li>RTO инференса минуты</li><li>batch можно отложить</li><li>stateless выдача признаков</li><li>rolling update пайплайна</li><li>идемпотентные джобы</li><li>runbook failover</li><li>кэш признаков</li><li>упрощённая модель fallback</li><li>два ЦОД</li><li>HA озера</li><li>выдача скора без окна</li><li>compute отдельно от storage</li><li>репликация между площадками</li><li>HA платформы данных</li><li>RTO выдачи скора</li><li>failover feature store</li><li>простой антифрода запрещён</li><li>отказоустойчивость выдачи признаков</li></ul>
+        <summary>Семантика кластера · 39 фраз</summary>
+        <ul class="tags"><li>надёжность данных</li><li>data reliability</li><li>надежность платформы</li><li>надежность сервиса</li><li>сервер авто</li><li>автоматизация серверов</li><li>серверная инфраструктура</li><li>SRE практики</li><li>эксплуатация кластера</li><li>управление кластером</li><li>отказоустойчивая Big Data платформа</li><li>простой скоринга недопустим</li><li>RTO инференса минуты</li><li>batch можно отложить</li><li>stateless выдача признаков</li><li>rolling update пайплайна</li><li>идемпотентные джобы</li><li>runbook failover</li><li>кэш признаков</li><li>упрощённая модель fallback</li><li>два ЦОД</li><li>HA озера</li><li>выдача скора без окна</li><li>compute отдельно от storage</li><li>репликация между площадками</li><li>HA платформы данных</li><li>RTO выдачи скора</li><li>failover feature store</li><li>простой антифрода запрещён</li><li>отказоустойчивость выдачи признаков</li><li>Zero Downtime Operations</li><li>NameNode Active Standby</li><li>JournalNodes кворум</li><li>YARN ResourceManager HA</li><li>Patroni VIP PostgreSQL</li><li>NodeManager drain exclude</li><li>dfs.exclude IN_MAINTENANCE</li><li>guardrails не больше N узлов</li><li>pre post health checks JMX</li></ul>
       </details>
-      <h2>Что реально должно не падать</h2>
-<p>Online-выдача признаков и скора. Потоки, от которых зависит фрод. Загрузка регуляторных витрин к сроку. Batch пересчёт можно отложить. Если всё объявлено equally critical, ничего не защищено.</p>
-<h2>Практики без простоя</h2>
-<p>Разделение compute и storage. Репликация данных между площадками. Stateless-сервисы выдачи. Канарейки и rolling update пайплайнов. Идемпотентные джобы. Тест восстановления не на бумаге, а по расписанию. Fallback: упрощённая модель и кэш признаков, если основное озеро недоступно.</p>
-<p>Наблюдаемость и runbook важнее второго бренда СУБД. Платформа без отработанного failover — это два кластера, которые упадут одинаково, потому что их никогда не переключали. Заложите RTO для инференса в минутах, для batch — в часах, и не обещайте нулевой простой там, где есть единая точка в схеме данных.</p>
-      <section class="related"><h2>Читать далее</h2><ul><li><a href="bdp-guide.html">Big Data Platform: инфраструктура данных для AI и аналитики</a></li></ul></section>
+      <p>Где данные в реальном времени (транзакции, биллинг, телеметрия), простой кластера — прямые потери. <strong>«Дижитрек» (Диджи Трек, DigiTrack)</strong> рассчитан на работу без окна. Масштаб — в <a href="scale-to-federated.html">«Как масштабировать Big Data-инфраструктуру от одного кластера до федеративной архитектуры»</a>.</p>
+<h2>HA критичных сервисов</h2>
+<ul><li><strong>HDFS:</strong> Active/Standby NameNode + JournalNodes, авто failover.</li><li><strong>YARN:</strong> ResourceManager HA.</li><li><strong>Hive Metastore:</strong> PostgreSQL Patroni, проверка через VIP.</li><li><strong>ZooKeeper:</strong> нечётный кворум, рестарт по одной машине.</li></ul>
+<h2>Rolling restart</h2>
+<p><strong>YARN NodeManager:</strong> drain → exclude, ждать numContainers=0, рестарт, RUNNING/healthy.</p>
+<p><strong>HDFS DataNode:</strong> dfs.exclude, IN_MAINTENANCE, рестарт, возврат в LiveNodes.</p>
+<p><strong>NameNode HA:</strong> сначала Standby, failover, затем бывший Active; кворум JournalNodes жив.</p>
+<p><strong>ZK + JN:</strong> по одной машине, проверка кворума после шага.</p>
+<p><strong>Patroni:</strong> reload без даунтайма или restart со switchover; VIP.</p>
+<p><strong>Hive Metastore:</strong> по инстансу, health-check БД через VIP.</p>
+<p><strong>JupyterHub:</strong> рестарт с проверкой до/после, минимальный impact.</p>
+<h2>Guardrails</h2>
+<p>Не больше N узлов сразу. Таймауты: зависание шага останавливает волну. restart_matrix по фактическим изменениям. Pre/post: REST NameNode/RM, JMX, VIP PostgreSQL, порты Hive.</p>
+<p>SRE: JMX, VIP, ZK quorum, порты — состояние кластера видно онлайн. Пром: 40 узлов, 1 ПБ+, регулярный rolling restart без окна для бизнеса.</p>
+      <section class="related"><h2>Читать далее</h2><ul><li><a href="bdp-guide.html">Big Data Platform: инфраструктура данных для AI и аналитики</a></li><li><a href="scale-to-federated.html">Как масштабировать Big Data-инфраструктуру от одного кластера до федеративной архитектуры</a></li><li><a href="ai-ready-platform.html">AI-ready Data Platform: какая инфраструктура нужна для корпоративного AI</a></li><li><a href="tco-big-data.html">Сколько стоит собственная платформа данных: считаем TCO Big Data-инфраструктуры</a></li><li><a href="choose-bdp-15.html">Как выбрать Big Data Platform для крупного предприятия: 15 критериев оценки</a></li></ul></section>
     </main>
     <footer><a href="../index.html">Таблица статей</a></footer>
   </body>

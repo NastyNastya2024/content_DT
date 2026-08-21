@@ -15,11 +15,12 @@ NAV_ARTICLE = ""
 
 
 def inline(text: str) -> str:
-    return re.sub(
+    text = re.sub(
         r"\[([^\]]+)\]\(([^)]+)\)",
         lambda m: f'<a href="{html.escape(m.group(2))}">{m.group(1)}</a>',
         text,
     )
+    return re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", text)
 
 
 def table_html(rows: list[str]) -> str:
@@ -204,7 +205,6 @@ def related_for(a: dict, all_a: list[dict]) -> list[dict]:
         add("fl-sandbox-or-embeddings")
         add("fl-what-is")
         add("fate-flower-nvflare")
-        add("choose-fl-framework-10")
         add("fl-antifraud")
         add("ai-risk-management")
         add("data-governance-ai")
@@ -226,6 +226,52 @@ def related_for(a: dict, all_a: list[dict]) -> list[dict]:
         add("ai-risk-management")
         add("fl-what-is")
         add("confidential-computing-partner")
+        add("fate-flower-nvflare")
+        add("scale-to-federated")
+    if a["slug"] == "tco-big-data":
+        add("choose-bdp-15")
+        add("vendor-lock-in")
+        add("opensource-enterprise")
+        add("ha-big-data-platform")
+    if a["slug"] == "choose-bdp-15":
+        add("tco-big-data")
+        add("vendor-lock-in")
+        add("opensource-enterprise")
+        add("scale-to-federated")
+        add("ha-big-data-platform")
+        add("ai-ready-platform")
+    if a["slug"] == "mlops-dataops":
+        add("ai-ready-platform")
+        add("data-governance-ai")
+        add("seven-data-quality")
+        add("data-pipeline-ml")
+    if a["slug"] == "ai-ready-platform":
+        add("mlops-dataops")
+        add("ha-big-data-platform")
+        add("scale-to-federated")
+        add("choose-bdp-15")
+        add("data-governance-ai")
+    if a["slug"] == "vendor-lock-in":
+        add("opensource-enterprise")
+        add("tco-big-data")
+        add("digital-sovereignty")
+        add("choose-bdp-15")
+    if a["slug"] == "opensource-enterprise":
+        add("vendor-lock-in")
+        add("digital-sovereignty")
+        add("tco-big-data")
+        add("choose-bdp-15")
+    if a["slug"] == "scale-to-federated":
+        add("ha-big-data-platform")
+        add("ai-ready-platform")
+        add("data-governance-ai")
+        add("fate-flower-nvflare")
+        add("choose-bdp-15")
+    if a["slug"] == "ha-big-data-platform":
+        add("scale-to-federated")
+        add("ai-ready-platform")
+        add("tco-big-data")
+        add("choose-bdp-15")
     if a["slug"] == "confidential-computing-partner":
         add("homomorphic-encryption")
         add("confidential-computing-152")
@@ -250,7 +296,6 @@ def related_for(a: dict, all_a: list[dict]) -> list[dict]:
         add("federated-xgboost-how")
         add("homomorphic-encryption")
         add("fl-what-is")
-        add("choose-fl-framework-10")
         add("partner-scoring-quality")
         add("fl-uplift-cases")
     if a["slug"] == "partner-scoring-quality":
@@ -279,12 +324,22 @@ def related_for(a: dict, all_a: list[dict]) -> list[dict]:
         add("fate-flower-nvflare")
         add("fl-what-is")
         add("raise-scoring-accuracy")
+        add("fl-antifraud")
+        add("confidential-computing-partner")
+    if a["slug"] == "fl-antifraud":
+        add("fl-uplift-cases")
+        add("fl-what-is")
+        add("vfl-or-hfl")
+        add("fate-flower-nvflare")
+        add("homomorphic-encryption")
+        add("replace-data-lake")
+        add("train-ai-multi-company")
+        add("confidential-computing-partner")
     if a["slug"] == "federated-xgboost-how":
         add("vfl-or-hfl")
         add("fate-flower-nvflare")
         add("homomorphic-encryption")
         add("raise-scoring-accuracy")
-        add("choose-fl-framework-10")
         add("fl-what-is")
         add("federated-xgboost-experiments")
     if a["slug"] == "homomorphic-encryption":
@@ -310,6 +365,15 @@ def related_for(a: dict, all_a: list[dict]) -> list[dict]:
         add("fl-what-is")
         add("raise-scoring-accuracy")
         add("fl-uplift-cases")
+    if a["slug"] == "fate-flower-nvflare":
+        add("federated-xgboost-how")
+        add("vfl-or-hfl")
+        add("fl-what-is")
+        add("confidential-computing-partner")
+        add("homomorphic-encryption")
+        add("raise-scoring-accuracy")
+        add("partner-scoring-quality")
+        add("fl-antifraud")
     return out[:12]
 
 
