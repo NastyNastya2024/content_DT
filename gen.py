@@ -160,7 +160,16 @@ def related_for(a: dict, all_a: list[dict]) -> list[dict]:
             and (x["hub"] == a["hub"] or a["hub"] == "both" or x["hub"] == "both")
         ):
             add(x["slug"])
-    if a["slug"] == "data-governance-ai":
+    if a["slug"] == "fl-vs-centralized":
+        add("fl-sandbox-or-embeddings")
+        add("fl-what-is")
+        add("data-stays-owner")
+        add("train-ai-multi-company")
+        add("replace-data-lake")
+        add("fl-antifraud")
+        add("data-governance-ai")
+        add("embeddings-outdated")
+        add("fl-vs-embeddings")
         add("seven-data-quality")
         add("reduce-ai-risks-governance")
         add("mlops-dataops")
