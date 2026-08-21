@@ -206,7 +206,6 @@ def related_for(a: dict, all_a: list[dict]) -> list[dict]:
         add("fl-what-is")
         add("fate-flower-nvflare")
         add("fl-antifraud")
-        add("ai-risk-management")
         add("data-governance-ai")
         add("homomorphic-encryption")
     if a["slug"] == "fl-vs-centralized":
@@ -217,13 +216,9 @@ def related_for(a: dict, all_a: list[dict]) -> list[dict]:
         add("fl-antifraud")
         add("data-governance-ai")
     if a["slug"] == "data-governance-ai":
-        add("seven-data-quality")
-        add("reduce-ai-risks-governance")
         add("mlops-dataops")
         add("eighty-percent-data")
-        add("ai-starts-with-data")
         add("train-ai-multi-company")
-        add("ai-risk-management")
         add("fl-what-is")
         add("confidential-computing-partner")
         add("fate-flower-nvflare")
@@ -255,12 +250,11 @@ def related_for(a: dict, all_a: list[dict]) -> list[dict]:
         add("mlops-dataops")
         add("data-governance-ai")
         add("ha-big-data-platform")
-        add("ai-starts-with-data")
+        add("bdp-guide")
     if a["slug"] == "mlops-dataops":
         add("ai-ready-platform")
         add("data-governance-ai")
-        add("seven-data-quality")
-        add("data-pipeline-ml")
+        add("eighty-percent-data")
     if a["slug"] == "ai-ready-platform":
         add("mlops-dataops")
         add("ha-big-data-platform")
@@ -270,11 +264,9 @@ def related_for(a: dict, all_a: list[dict]) -> list[dict]:
     if a["slug"] == "vendor-lock-in":
         add("opensource-enterprise")
         add("tco-big-data")
-        add("digital-sovereignty")
         add("choose-bdp-15")
     if a["slug"] == "opensource-enterprise":
         add("vendor-lock-in")
-        add("digital-sovereignty")
         add("tco-big-data")
         add("choose-bdp-15")
     if a["slug"] == "scale-to-federated":
