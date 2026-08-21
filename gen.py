@@ -206,7 +206,6 @@ def related_for(a: dict, all_a: list[dict]) -> list[dict]:
         add("fl-what-is")
         add("fate-flower-nvflare")
         add("fl-antifraud")
-        add("data-governance-ai")
         add("homomorphic-encryption")
     if a["slug"] == "fl-vs-centralized":
         add("fl-sandbox-or-embeddings")
@@ -214,15 +213,6 @@ def related_for(a: dict, all_a: list[dict]) -> list[dict]:
         add("train-ai-multi-company")
         add("replace-data-lake")
         add("fl-antifraud")
-        add("data-governance-ai")
-    if a["slug"] == "data-governance-ai":
-        add("mlops-dataops")
-        add("eighty-percent-data")
-        add("train-ai-multi-company")
-        add("fl-what-is")
-        add("confidential-computing-partner")
-        add("fate-flower-nvflare")
-        add("scale-to-federated")
     if a["slug"] == "tco-big-data":
         add("choose-bdp-15")
         add("vendor-lock-in")
@@ -248,19 +238,16 @@ def related_for(a: dict, all_a: list[dict]) -> list[dict]:
     if a["slug"] == "eighty-percent-data":
         add("ai-ready-platform")
         add("mlops-dataops")
-        add("data-governance-ai")
         add("ha-big-data-platform")
         add("bdp-guide")
     if a["slug"] == "mlops-dataops":
         add("ai-ready-platform")
-        add("data-governance-ai")
         add("eighty-percent-data")
     if a["slug"] == "ai-ready-platform":
         add("mlops-dataops")
         add("ha-big-data-platform")
         add("scale-to-federated")
         add("choose-bdp-15")
-        add("data-governance-ai")
     if a["slug"] == "vendor-lock-in":
         add("opensource-enterprise")
         add("tco-big-data")
@@ -272,7 +259,6 @@ def related_for(a: dict, all_a: list[dict]) -> list[dict]:
     if a["slug"] == "scale-to-federated":
         add("ha-big-data-platform")
         add("ai-ready-platform")
-        add("data-governance-ai")
         add("fate-flower-nvflare")
         add("choose-bdp-15")
     if a["slug"] == "ha-big-data-platform":
@@ -297,7 +283,6 @@ def related_for(a: dict, all_a: list[dict]) -> list[dict]:
         add("federated-xgboost-how")
         add("homomorphic-encryption")
         add("confidential-computing-152")
-        add("data-governance-ai")
     if a["slug"] == "raise-scoring-accuracy":
         add("vfl-or-hfl")
         add("fate-flower-nvflare")
