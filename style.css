@@ -234,7 +234,23 @@ table {
   border-collapse: collapse;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 13px;
+}
+
+.wrap table {
   min-width: 980px;
+}
+
+.md-table {
+  overflow-x: auto;
+  margin: 1.2em 0 1.8em;
+}
+
+.article .md-table table {
+  min-width: 0;
+}
+
+.article .md-table th {
+  position: static;
 }
 
 th,

@@ -22,6 +22,32 @@ def inline(text: str) -> str:
     )
 
 
+def table_html(rows: list[str]) -> str:
+    parsed = []
+    for row in rows:
+        if re.match(r"^\|?\s*:?-+:?\s*(\|\s*:?-+:?\s*)+\|?\s*$", row):
+            continue
+        cells = [c.strip() for c in row.strip().strip("|").split("|")]
+        parsed.append(cells)
+    if not parsed:
+        return ""
+    head, *body = parsed
+    thead = (
+        "<thead><tr>"
+        + "".join(f"<th>{inline(c)}</th>" for c in head)
+        + "</tr></thead>"
+    )
+    tbody = (
+        "<tbody>"
+        + "".join(
+            "<tr>" + "".join(f"<td>{inline(c)}</td>" for c in r) + "</tr>"
+            for r in body
+        )
+        + "</tbody>"
+    )
+    return f'<div class="md-table"><table>{thead}{tbody}</table></div>'
+
+
 def md_to_html(text: str) -> str:
     lines = [ln.rstrip() for ln in text.strip().splitlines()]
     out, para, ul, ol = [], [], [], []
@@ -49,8 +75,20 @@ def md_to_html(text: str) -> str:
         flush_ul()
         flush_ol()
 
-    for line in lines:
+    i = 0
+    while i < len(lines):
+        line = lines[i]
         numbered = re.match(r"^\d+\.\s+(.*)$", line)
+        if line.startswith("|"):
+            flush_all()
+            rows = []
+            while i < len(lines) and lines[i].startswith("|"):
+                rows.append(lines[i])
+                i += 1
+            html_table = table_html(rows)
+            if html_table:
+                out.append(html_table)
+            continue
         if not line:
             flush_all()
         elif line.startswith("### "):
@@ -71,6 +109,7 @@ def md_to_html(text: str) -> str:
             flush_ul()
             flush_ol()
             para.append(line)
+        i += 1
     flush_all()
     return "\n".join(out)
 
@@ -160,26 +199,117 @@ def related_for(a: dict, all_a: list[dict]) -> list[dict]:
             and (x["hub"] == a["hub"] or a["hub"] == "both" or x["hub"] == "both")
         ):
             add(x["slug"])
+    if a["slug"] == "train-ai-multi-company":
+        add("fl-vs-centralized")
+        add("fl-sandbox-or-embeddings")
+        add("fl-what-is")
+        add("fate-flower-nvflare")
+        add("choose-fl-framework-10")
+        add("fl-antifraud")
+        add("ai-risk-management")
+        add("data-governance-ai")
+        add("homomorphic-encryption")
     if a["slug"] == "fl-vs-centralized":
         add("fl-sandbox-or-embeddings")
         add("fl-what-is")
-        add("data-stays-owner")
         add("train-ai-multi-company")
         add("replace-data-lake")
         add("fl-antifraud")
         add("data-governance-ai")
-        add("embeddings-outdated")
-        add("fl-vs-embeddings")
+    if a["slug"] == "data-governance-ai":
         add("seven-data-quality")
         add("reduce-ai-risks-governance")
         add("mlops-dataops")
         add("eighty-percent-data")
         add("ai-starts-with-data")
-        add("data-stays-owner")
         add("train-ai-multi-company")
         add("ai-risk-management")
         add("fl-what-is")
         add("confidential-computing-partner")
+    if a["slug"] == "confidential-computing-partner":
+        add("homomorphic-encryption")
+        add("confidential-computing-152")
+        add("federated-xgboost-how")
+        add("fate-flower-nvflare")
+        add("fl-what-is")
+        add("vfl-or-hfl")
+    if a["slug"] == "vfl-or-hfl":
+        add("fl-vs-centralized")
+        add("train-ai-multi-company")
+        add("fl-sandbox-or-embeddings")
+        add("fl-what-is")
+        add("raise-scoring-accuracy")
+        add("fl-antifraud")
+        add("federated-xgboost-how")
+        add("homomorphic-encryption")
+        add("confidential-computing-152")
+        add("data-governance-ai")
+    if a["slug"] == "raise-scoring-accuracy":
+        add("vfl-or-hfl")
+        add("fate-flower-nvflare")
+        add("federated-xgboost-how")
+        add("homomorphic-encryption")
+        add("fl-what-is")
+        add("choose-fl-framework-10")
+        add("partner-scoring-quality")
+        add("fl-uplift-cases")
+    if a["slug"] == "partner-scoring-quality":
+        add("replace-data-lake")
+        add("fl-uplift-cases")
+        add("vfl-or-hfl")
+        add("federated-xgboost-how")
+        add("fl-what-is")
+        add("fate-flower-nvflare")
+        add("federated-xgboost-experiments")
+        add("raise-scoring-accuracy")
+    if a["slug"] == "replace-data-lake":
+        add("partner-scoring-quality")
+        add("fl-uplift-cases")
+        add("fl-vs-centralized")
+        add("fl-what-is")
+        add("homomorphic-encryption")
+        add("fate-flower-nvflare")
+        add("federated-xgboost-how")
+    if a["slug"] == "fl-uplift-cases":
+        add("partner-scoring-quality")
+        add("replace-data-lake")
+        add("federated-xgboost-experiments")
+        add("federated-xgboost-how")
+        add("fl-sandbox-or-embeddings")
+        add("fate-flower-nvflare")
+        add("fl-what-is")
+        add("raise-scoring-accuracy")
+    if a["slug"] == "federated-xgboost-how":
+        add("vfl-or-hfl")
+        add("fate-flower-nvflare")
+        add("homomorphic-encryption")
+        add("raise-scoring-accuracy")
+        add("choose-fl-framework-10")
+        add("fl-what-is")
+        add("federated-xgboost-experiments")
+    if a["slug"] == "homomorphic-encryption":
+        add("confidential-computing-partner")
+        add("federated-xgboost-how")
+        add("confidential-computing-152")
+        add("fate-flower-nvflare")
+        add("vfl-or-hfl")
+        add("fl-what-is")
+    if a["slug"] == "why-classic-xgboost-fails":
+        add("federated-xgboost-how")
+        add("vfl-or-hfl")
+        add("fate-flower-nvflare")
+        add("fl-sandbox-or-embeddings")
+        add("fl-what-is")
+        add("raise-scoring-accuracy")
+        add("federated-xgboost-experiments")
+    if a["slug"] == "federated-xgboost-experiments":
+        add("federated-xgboost-how")
+        add("why-classic-xgboost-fails")
+        add("fl-sandbox-or-embeddings")
+        add("fate-flower-nvflare")
+        add("fl-what-is")
+        add("raise-scoring-accuracy")
+        add("fl-uplift-cases")
     return out[:12]
 
 
