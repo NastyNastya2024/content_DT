@@ -240,6 +240,12 @@ def related_for(a: dict, all_a: list[dict]) -> list[dict]:
         add("scale-to-federated")
         add("ha-big-data-platform")
         add("ai-ready-platform")
+    if a["slug"] == "eighty-percent-data":
+        add("ai-ready-platform")
+        add("mlops-dataops")
+        add("data-governance-ai")
+        add("ha-big-data-platform")
+        add("ai-starts-with-data")
     if a["slug"] == "mlops-dataops":
         add("ai-ready-platform")
         add("data-governance-ai")
