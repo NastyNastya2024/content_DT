@@ -245,6 +245,14 @@ td {
   border-bottom: 1px solid var(--line);
 }
 
+th.n,
+td.n {
+  width: 2.4em;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
 th {
   background: #f5f5f4;
   font-weight: 600;
@@ -400,6 +408,12 @@ footer {
   font-size: 14px;
   margin: 14px 0 0;
   padding-left: 18px;
+}
+
+.cluster-card .arts .n {
+  color: var(--muted);
+  margin-right: 4px;
+  font-variant-numeric: tabular-nums;
 }
 
 .cluster-card .arts a {
