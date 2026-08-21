@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MLOps начинается с DataOps: почему без управления данными нельзя построить промышленный AI</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header>
+      <strong>Контент-план</strong>
+      <nav>
+        <a href="../index.html">Роли</a>
+        <a href="../plan.html">Таблица статей</a>
+        <a href="../clusters.html">Кластеры</a>
+      </nav>
+    </header>
+    <main class="article">
+      <p class="crumbs"><a href="../plan.html">Таблица статей</a> · Big Data Platform · <a href="../clusters.html#mlops-nachinaetsya-s-dataops">MLOps начинается с DataOps на платформе данных</a></p>
+      <p class="meta">Head of AI · Рассмотрение · Cluster · —</p>
+      <h1>MLOps начинается с DataOps: почему без управления данными нельзя построить промышленный AI</h1>
+      <p class="lead">Команды ставят CI для моделей, реестр и canary, а переобучение кормится ручным SQL. Это не MLOps. Промышленный AI начинается там, где пайплайн данных имеет такую же дисциплину, как пайплайн модели.</p>
+      <details class="semantics">
+        <summary>Семантика кластера · 30 фраз</summary>
+        <ul class="tags"><li>MLOps начинается с DataOps</li><li>DataOps</li><li>MLOps</li><li>CI моделей</li><li>реестр моделей</li><li>canary выдачи</li><li>ручной SQL на переобучении</li><li>unit тесты данных</li><li>инцидент сначала данные</li><li>контракты схем</li><li>алерт свежести витрины</li><li>версия данных в карточке</li><li>откат кода не откат витрины</li><li>feature pipeline как код</li><li>промышленный AI без DataOps</li><li>дисциплина пайплайна данных</li><li>дежурство data engineer</li><li>совместный runbook</li><li>DataOps гейт перед MLOps</li><li>версия витрины как код</li><li>переобучение кормится пайплайном</li><li>CI данных</li><li>canary модели на свежих данных</li><li>инцидент сначала ETL</li><li>feature pipeline тесты</li><li>дежурство данных и моделей</li><li>без DataOps нет промышленного AI</li><li>версия данных равна версии модели</li><li>инцидент данных раньше модели</li><li>промышленный AI нужен DataOps</li></ul>
+      </details>
+      <h2>Где рвётся контур</h2>
+<p>MLOps без DataOps выглядит так: модель версионируется, данные — нет. Признаки «почти те же». Мониторинг смотрит на метрику модели и не видит, что вчера сменился справочник. Откат модели откатывает код, но не витрину.</p>
+<p>DataOps добавляет контракты схем, тесты данных, алерты свежести, владельцев пайплайнов, среду, где feature pipeline прогоняется так же, как unit-тесты. Тогда MLOps получает воспроизводимый вход.</p>
+<h2>Что внедрять вместе</h2>
+<p>Один идентификатор версии данных в карточке модели. Гейт качества перед train. Наблюдаемость признаков в проде. Общий инцидент-процесс: сначала проверяем данные, потом модель. Иначе дежурный data scientist всю ночь тюнит порог, а сломался ETL.</p>
+<p>AI-ready платформа — это как раз место, где DataOps и MLOps встречаются, а не два параллельных культа инструментов.</p>
+      <section class="related"><h2>Читать далее</h2><ul><li><a href="bdp-guide.html">Big Data Platform: инфраструктура данных для AI и аналитики</a></li></ul></section>
+    </main>
+    <footer><a href="../plan.html">← Назад к таблице</a></footer>
+  </body>
+</html>

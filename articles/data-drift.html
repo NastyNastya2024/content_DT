@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Data Drift: почему данные меняются быстрее, чем AI-модели</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header>
+      <strong>Контент-план</strong>
+      <nav>
+        <a href="../index.html">Роли</a>
+        <a href="../plan.html">Таблица статей</a>
+        <a href="../clusters.html">Кластеры</a>
+      </nav>
+    </header>
+    <main class="article">
+      <p class="crumbs"><a href="../plan.html">Таблица статей</a> · Big Data Platform · <a href="../clusters.html#data-observability-i-data-drift">Data Observability и Data Drift на платформе данных</a></p>
+      <p class="meta">Data Scientist · Решение · Cluster · —</p>
+      <h1>Data Drift: почему данные меняются быстрее, чем AI-модели</h1>
+      <p class="lead">Модель заморозили на квартал. Мир не заморозился: продукт, канал, мошенники, сезон, политика выдачи. Дрифт данных — штатный режим, а не инцидент. Вопрос в том, кто его видит и что с ним делает.</p>
+      <details class="semantics">
+        <summary>Семантика кластера · 30 фраз</summary>
+        <ul class="tags"><li>Data Observability</li><li>Data Drift</li><li>дрейф данных</li><li>снижение дрейфа данных</li><li>data drift mitigation</li><li>свежесть витрины</li><li>доля пустых</li><li>PSI признаков</li><li>сдвиг домена</li><li>просадка полноты</li><li>джоба успешна смысл мёртв</li><li>concept drift</li><li>сдвиг ковариат</li><li>сдвиг таргета</li><li>календарь не правило переобучения</li><li>сезонность не инцидент</li><li>обвал Gini позже данных</li><li>distribution shift</li><li>мониторинг раньше метрики модели</li><li>наблюдаемость витрины</li><li>дрифт быстрее модели</li><li>PSI и concept drift</li><li>алерт до падения Gini</li><li>observability витрин AI</li><li>дрифт как штатный режим платформы</li><li>мониторинг признаков AI</li><li>сломанная кодировка канала</li><li>covariate и target shift</li><li>Data Observability слои</li><li>мониторинг потоков данных</li></ul>
+      </details>
+      <h2>Какие бывают сдвиги</h2>
+<p>Сдвиг ковариат: входные признаки уехали. Сдвиг таргета: дефолт и фрод поменяли базу. Concept drift: связь признаков и таргета стала другой. Платформа должна различать их: переобучать всегда — дорого и опасно, не переобучать никогда — гарантия деградации.</p>
+<h2>Что делать</h2>
+<p>Мониторинг PSI и калибровки на коротком окне. Разделение сегментов: новые клиенты, каналы, продукты. Правило переобучения: не по календарю, а по порогу дрифта плюс проверка, что новые данные качественные. Champion-challenger, а не тихая перезапись промышленной модели.</p>
+<p>Связка с Observability прямая: observability сообщает, что поле уехало; политика дрифта решает, это шум, поломка пайплайна или сигнал к новой модели. Без этой связки команда либо паникует на каждый сезон, либо замечает обвал через отчёт риска.</p>
+      <section class="related"><h2>Читать далее</h2><ul><li><a href="bdp-guide.html">Big Data Platform: инфраструктура данных для AI и аналитики</a></li><li><a href="data-observability.html">Data Observability: как понять, что данные для AI внезапно стали неправильными</a></li></ul></section>
+    </main>
+    <footer><a href="../plan.html">← Назад к таблице</a></footer>
+  </body>
+</html>

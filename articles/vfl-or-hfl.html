@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VFL или HFL: какой тип федеративного обучения подходит для финансового сектора</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header>
+      <strong>Контент-план</strong>
+      <nav>
+        <a href="../index.html">Роли</a>
+        <a href="../plan.html">Таблица статей</a>
+        <a href="../clusters.html">Кластеры</a>
+      </nav>
+    </header>
+    <main class="article">
+      <p class="crumbs"><a href="../plan.html">Таблица статей</a> · Федеративное обучение · <a href="../clusters.html#vfl-i-hfl-v-finansah">VFL и HFL: какой тип федеративного обучения для финансов</a></p>
+      <p class="meta">Head of AI · Рассмотрение · Внешняя · Habr, Ultralytics</p>
+      <h1>VFL или HFL: какой тип федеративного обучения подходит для финансового сектора</h1>
+      <p class="lead">В финансах разговор про FL быстро упирается в выбор между vertical и horizontal. Это не академический нюанс. От него зависят архитектура, ИБ, пересечение клиентов и то, какую модель вы можете обучить.</p>
+      <details class="semantics">
+        <summary>Семантика кластера · 30 фраз</summary>
+        <ul class="tags"><li>vfl что это</li><li>VFL</li><li>vertical federated learning</li><li>вертикальное федеративное обучение</li><li>горизонтальное федеративное обучение</li><li>horizontal federated learning</li><li>горизонтальное и вертикальное FL</li><li>HFL</li><li>cross-silo federated learning</li><li>кросс-сайло</li><li>cross-device federated learning</li><li>кросс-девайсное FL</li><li>federated learning в IoT</li><li>federated learning for IoT</li><li>федеративное обучение в IoT</li><li>feature space финансов</li><li>пересечение клиентов VFL</li><li>похожие поля HFL</li><li>PSI идентификаторы</li><li>активная сторона VFL</li><li>label остаётся в банке</li><li>телеком плюс банк VFL</li><li>ритейл плюс банк VFL</li><li>финансовый сектор FL типы</li><li>ошибка выбора VFL или HFL</li><li>вертикальный скоринг</li><li>горизонтальный антифрод</li><li>признаки партнёра VFL</li><li>разные клиенты HFL</li><li>разные колонки VFL</li></ul>
+      </details>
+      <h2>Horizontal FL</h2>
+<p>HFL работает, когда у участников близкая схема данных, а клиенты разные. Примеры: антифрод на похожих транзакционных полях, банки группы с унифицированной витриной, страховые с похожим составом полиса.</p>
+<p>Плюсы: проще агрегация, понятный FedAvg. Минусы: между независимыми банками редко бывает согласованный feature space; сильнее бьёт non-IID.</p>
+<h2>Vertical FL</h2>
+<p>VFL нужен, когда ценность в расширении вектора признаков: банк плюс ритейл или телеком для скоринга, банк плюс процессинг для антифрода. Плюсы: здесь обычно лежит аплифт партнёрского скоринга. Минусы: нужен PSI, сложнее протокол, выше требования к TEE и HE, чувствительнее качество матчинга.</p>
+<h2>Как выбирать</h2>
+<p>Нужны чужие признаки на ваших клиентах — VFL. Нужна статистика редких событий на чужих клиентах при похожих полях — HFL. Нужно и то и другое — гибрид, но это второй этап, не пилот.</p>
+<p>Для скоринга в большинстве пилотов правильный ответ — VFL. Для межбанковского антифрода часто интереснее HFL. Ошибка на этом шаге дороже, чем ошибка в learning rate.</p>
+      <section class="related"><h2>Читать далее</h2><ul><li><a href="fl-guide.html">Федеративное обучение: как обучать модели на распределённых данных</a></li></ul></section>
+    </main>
+    <footer><a href="../plan.html">← Назад к таблице</a></footer>
+  </body>
+</html>

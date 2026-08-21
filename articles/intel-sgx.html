@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Аппаратная безопасность для AI: Intel SGX и Confidential Computing</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header>
+      <strong>Контент-план</strong>
+      <nav>
+        <a href="../index.html">Роли</a>
+        <a href="../plan.html">Таблица статей</a>
+        <a href="../clusters.html">Кластеры</a>
+      </nav>
+    </header>
+    <main class="article">
+      <p class="crumbs"><a href="../plan.html">Таблица статей</a> · Федеративное обучение · <a href="../clusters.html#intel-sgx-dlya-federativnogo-ai">Intel SGX и аппаратная защита федеративного AI</a></p>
+      <p class="meta">CISO · Решение · Cluster · —</p>
+      <h1>Аппаратная безопасность для AI: Intel SGX и Confidential Computing</h1>
+      <p class="lead">Когда договор и TLS уже не отвечают на вопрос, кто видит память во время совместного обучения, разговор переходит на аппаратный корень доверия. Intel SGX — самый обсуждаемый, но не единственный вариант TEE для AI-контура.</p>
+      <details class="semantics">
+        <summary>Семантика кластера · 30 фраз</summary>
+        <ul class="tags"><li>Intel SGX</li><li>enclave</li><li>EPC</li><li>measurement анклава</li><li>sealing</li><li>микрокод CPU</li><li>SEV-SNP</li><li>Intel TDX</li><li>NVIDIA Confidential Computing</li><li>HSM</li><li>supply chain железа</li><li>remote attestation</li><li>untrusted host</li><li>EPC лимит</li><li>корень доверия железа</li><li>SGX для VFL</li><li>ключи внутри анклава</li><li>аппаратная защита AI</li><li>SGX для федеративного обучения</li><li>анклав VFL</li><li>attestation раунда</li><li>аппаратный корень доверия FL</li><li>SGX на критичном сплите</li><li>подпись enclave</li><li>обновление микрокода</li><li>производительность анклава</li><li>paging side channel</li><li>спекулятивные атаки анклава</li><li>PSW</li><li>аппаратный TEE</li></ul>
+      </details>
+      <h2>Что даёт SGX</h2>
+<p>SGX создаёт enclave: изолированная память, remote attestation, sealing ключом анклава. В FL и VFL сюда кладут расшифровку промежуточных статистик, код Secure Aggregation, PSI, согласование сплитов и выпуск сессионных ключей. Хост остаётся untrusted.</p>
+<h2>Модель угроз</h2>
+<p>В TCB входят CPU, микрокод, SDK и ваш enclave binary. Есть ограничения EPC и производительности. Side channels нужно принять как residual risk. Любой лог и ocall — потенциальный канал утечки. SGX не отменяет inversion и poisoning. Он сужает круг тех, кто видит plaintext во время расчёта.</p>
+<p>Сравнить стоит AMD SEV-SNP и Intel TDX — изоляция на уровне VM, проще поднимать пайплайны, грубее TCB. NVIDIA Confidential Computing — если счёт идёт на GPU. Частное облако без TEE слабее против инсайдера-админа.</p>
+<p>Чеклист допуска в прод: measurement в политике, attestation на сессию, ключи внутри анклава или HSM, запрет сырых ПДн в логах хоста, процедура обновления микрокода, нагрузочный тест. Если пункты не закрыты, SGX — аппаратный бейдж на слайде.</p>
+      <section class="related"><h2>Читать далее</h2><ul><li><a href="fl-guide.html">Федеративное обучение: как обучать модели на распределённых данных</a></li></ul></section>
+    </main>
+    <footer><a href="../plan.html">← Назад к таблице</a></footer>
+  </body>
+</html>

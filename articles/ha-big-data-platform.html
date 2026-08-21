@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Как построить отказоустойчивую Big Data-платформу без простоя</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header>
+      <strong>Контент-план</strong>
+      <nav>
+        <a href="../index.html">Роли</a>
+        <a href="../plan.html">Таблица статей</a>
+        <a href="../clusters.html">Кластеры</a>
+      </nav>
+    </header>
+    <main class="article">
+      <p class="crumbs"><a href="../plan.html">Таблица статей</a> · Big Data Platform · <a href="../clusters.html#otkazoustojchivaya-big-data-platform">Отказоустойчивая Big Data Platform без простоя выдачи</a></p>
+      <p class="meta">Data Architect · Решение · Cluster · —</p>
+      <h1>Как построить отказоустойчивую Big Data-платформу без простоя</h1>
+      <p class="lead">Для аналитики час простоя — неприятность. Для скоринга и антифрода — остановка бизнеса. Отказоустойчивость платформы данных проектируют от RPO/RTO критичных выдач, а не от желания «кластер в двух ЦОД».</p>
+      <details class="semantics">
+        <summary>Семантика кластера · 30 фраз</summary>
+        <ul class="tags"><li>надёжность данных</li><li>data reliability</li><li>надежность платформы</li><li>надежность сервиса</li><li>сервер авто</li><li>автоматизация серверов</li><li>серверная инфраструктура</li><li>SRE практики</li><li>эксплуатация кластера</li><li>управление кластером</li><li>отказоустойчивая Big Data платформа</li><li>простой скоринга недопустим</li><li>RTO инференса минуты</li><li>batch можно отложить</li><li>stateless выдача признаков</li><li>rolling update пайплайна</li><li>идемпотентные джобы</li><li>runbook failover</li><li>кэш признаков</li><li>упрощённая модель fallback</li><li>два ЦОД</li><li>HA озера</li><li>выдача скора без окна</li><li>compute отдельно от storage</li><li>репликация между площадками</li><li>HA платформы данных</li><li>RTO выдачи скора</li><li>failover feature store</li><li>простой антифрода запрещён</li><li>отказоустойчивость выдачи признаков</li></ul>
+      </details>
+      <h2>Что реально должно не падать</h2>
+<p>Online-выдача признаков и скора. Потоки, от которых зависит фрод. Загрузка регуляторных витрин к сроку. Batch пересчёт можно отложить. Если всё объявлено equally critical, ничего не защищено.</p>
+<h2>Практики без простоя</h2>
+<p>Разделение compute и storage. Репликация данных между площадками. Stateless-сервисы выдачи. Канарейки и rolling update пайплайнов. Идемпотентные джобы. Тест восстановления не на бумаге, а по расписанию. Fallback: упрощённая модель и кэш признаков, если основное озеро недоступно.</p>
+<p>Наблюдаемость и runbook важнее второго бренда СУБД. Платформа без отработанного failover — это два кластера, которые упадут одинаково, потому что их никогда не переключали. Заложите RTO для инференса в минутах, для batch — в часах, и не обещайте нулевой простой там, где есть единая точка в схеме данных.</p>
+      <section class="related"><h2>Читать далее</h2><ul><li><a href="bdp-guide.html">Big Data Platform: инфраструктура данных для AI и аналитики</a></li></ul></section>
+    </main>
+    <footer><a href="../plan.html">← Назад к таблице</a></footer>
+  </body>
+</html>

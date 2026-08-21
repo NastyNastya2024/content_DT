@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Почему классический XGBoost не работает в распределённой среде: ограничения централизованного обучения на партнёрских данных</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header>
+      <strong>Контент-план</strong>
+      <nav>
+        <a href="../index.html">Роли</a>
+        <a href="../plan.html">Таблица статей</a>
+        <a href="../clusters.html">Кластеры</a>
+      </nav>
+    </header>
+    <main class="article">
+      <p class="crumbs"><a href="../plan.html">Таблица статей</a> · Федеративное обучение · <a href="../clusters.html#federated-xgboost-bez-peredachi-dannyh">Federated XGBoost: бустинг без передачи исходных данных</a></p>
+      <p class="meta">Data Scientist · Рассмотрение · Внешняя · Habr, Ultralytics</p>
+      <h1>Почему классический XGBoost не работает в распределённой среде: ограничения централизованного обучения на партнёрских данных</h1>
+      <p class="lead">«У нас уже есть distributed XGBoost» — частая причина, по которой пилот FL не стартует. Distributed и federated звучат похоже. По правам на данные это разные режимы.</p>
+      <details class="semantics">
+        <summary>Семантика кластера · 30 фраз</summary>
+        <ul class="tags"><li>Federated XGBoost</li><li>SecureBoost</li><li>DMatrix нельзя собрать</li><li>гистограммы сплитов</li><li>квантили признаков</li><li>градиенты бустинга</li><li>гессианы</li><li>gain кандидата</li><li>бины признаков</li><li>monotonic constraints</li><li>payload гистограмм</li><li>eval активной стороны</li><li>пассивная сторона признаков</li><li>TreeSHAP ограничения</li><li>distributed XGBoost не federated</li><li>квантилизация</li><li>гистограммный обмен</li><li>XGBoost на партнёрских данных</li><li>эксперименты OOT бустинга</li><li>сравнение с эмбеддинг бустингом</li><li>распределённый градиентный бустинг</li><li>почему классический XGBoost не работает</li><li>эксперименты метрик FL</li><li>SecureBoost сплиты</li><li>Federated XGBoost протокол</li><li>missing values в VFL</li><li>категории без словаря</li><li>seed дерева</li><li>активная сторона бустинга</li><li>бустинг без передачи исходных данных</li></ul>
+      </details>
+      <h2>Distributed решает масштаб, а не доверие</h2>
+<p>Воркеры живут в одном кластере, обмениваются гистограммами открыто и подчиняются одному scheduler. Это отлично, когда банк учится на своём Lake. Это неприменимо, когда вторая половина признаков лежит в другом юрлице.</p>
+<p>Где ломается пайплайн: нельзя собрать DMatrix concat-ом признаков; глобальные квантили требуют чужого распределения; сырые гистограммы — утечка; кодировки категорий не согласованы; раннюю остановку не на чем считать без полного вектора; TreeSHAP ждёт полный объект.</p>
+<p>Ложные обходы: докинуть чужие поля только на инференсе; скормить эмбеддинги как числовые колонки; выгрузить агрегаты до клиента; поднять общий Spark «в нейтральном облаке». Всё это либо ломает распределение, либо снова становится централизацией.</p>
+<p>В федеративной постановке контракт другой: локальный датасет, PSI-ключ, протокол сплита, federated evaluation. Пока команда мыслит «соберём фичи и вызовем XGBClassifier», партнёрский скоринг будет упираться в юристов.</p>
+      <section class="related"><h2>Читать далее</h2><ul><li><a href="fl-guide.html">Федеративное обучение: как обучать модели на распределённых данных</a></li><li><a href="federated-xgboost-how.html">Federated XGBoost: как устроено распределённое обучение градиентного бустинга без передачи исходных данных</a></li><li><a href="federated-xgboost-experiments.html">Как Federated XGBoost повышает качество модели на партнёрских данных: эксперименты, метрики и сравнение с эмбеддингами</a></li></ul></section>
+    </main>
+    <footer><a href="../plan.html">← Назад к таблице</a></footer>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>От данных к AI: как построить надёжный Data Pipeline для машинного обучения</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header>
+      <strong>Контент-план</strong>
+      <nav>
+        <a href="../index.html">Роли</a>
+        <a href="../plan.html">Таблица статей</a>
+        <a href="../clusters.html">Кластеры</a>
+      </nav>
+    </header>
+    <main class="article">
+      <p class="crumbs"><a href="../plan.html">Таблица статей</a> · Big Data Platform · <a href="../clusters.html#data-pipeline-dlya-mashinnogo-obucheniya">Data Pipeline от данных к модели машинного обучения</a></p>
+      <p class="meta">Data Scientist · Осознание · Внешняя · Habr, Medium</p>
+      <h1>От данных к AI: как построить надёжный Data Pipeline для машинного обучения</h1>
+      <p class="lead">Надёжный пайплайн для ML отличается от аналитического ETL. Ему нужны точка во времени, отсутствие утечки, повторяемость и явная версия. Иначе эксперимент нельзя сравнить, а прод нельзя объяснить.</p>
+      <details class="semantics">
+        <summary>Семантика кластера · 30 фраз</summary>
+        <ul class="tags"><li>Data Pipeline для ML</li><li>потоки данных</li><li>point-in-time join</li><li>утечка будущего в признаки</li><li>snapshot выборки</li><li>timestamp решения</li><li>таргет отдельным слоем</li><li>train и serve один код</li><li>расхождение прод и обучения</li><li>сырой слой</li><li>согласованные сущности</li><li>витрина признаков PIT</li><li>надёжный конвейер</li><li>воспроизводимый ETL ML</li><li>одинаковый препроцессинг</li><li>запрет последней известной записи</li><li>PIT join для скоринга</li><li>train-serve parity</li><li>запрет утечки будущего</li><li>витрина на момент решения</li><li>конвейер признаков для ML</li><li>data lineage что это</li><li>lineage для аналитики</li><li>сквозная прослеживаемость пайплайна</li><li>tutorial надёжного ETL ML</li><li>сырой ingest</li><li>согласованные сущности клиента</li><li>воспроизводимый конвейер признаков</li><li>PIT корректность скоринга</li><li>запрет утечки таргета</li></ul>
+      </details>
+      <h2>Чем ML-пайплайн отличается от отчёта</h2>
+<p>Отчёт может пересчитаться «как сейчас». Модель должна видеть мир на момент решения. Это point-in-time join, а не последняя известная запись. Утечка будущего в признаки — самая дорогая ошибка начинающего контура.</p>
+<p>Минимальный каркас: сырой слой, согласованные сущности, витрина признаков с timestamp, отдельный расчёт таргета, фиксация snapshot, тесты на утечку и свежесть, выдача в train и в инференс из одного кода. Если train считается SQL-скриптом, а прод — другим сервисом, расхождение гарантировано.</p>
+<p>Для внешней аудитории это туториал-рамка. На сайте её продолжают Observability и Data Drift — то, что происходит с пайплайном после запуска.</p>
+      <section class="related"><h2>Читать далее</h2><ul><li><a href="bdp-guide.html">Big Data Platform: инфраструктура данных для AI и аналитики</a></li></ul></section>
+    </main>
+    <footer><a href="../plan.html">← Назад к таблице</a></footer>
+  </body>
+</html>

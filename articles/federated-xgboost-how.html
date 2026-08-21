@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Federated XGBoost: как устроено распределённое обучение градиентного бустинга без передачи исходных данных</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header>
+      <strong>Контент-план</strong>
+      <nav>
+        <a href="../index.html">Роли</a>
+        <a href="../plan.html">Таблица статей</a>
+        <a href="../clusters.html">Кластеры</a>
+      </nav>
+    </header>
+    <main class="article">
+      <p class="crumbs"><a href="../plan.html">Таблица статей</a> · Федеративное обучение · <a href="../clusters.html#federated-xgboost-bez-peredachi-dannyh">Federated XGBoost: бустинг без передачи исходных данных</a></p>
+      <p class="meta">Data Scientist · Рассмотрение · Внешняя · Habr, Ultralytics</p>
+      <h1>Federated XGBoost: как устроено распределённое обучение градиентного бустинга без передачи исходных данных</h1>
+      <p class="lead">В промышленном скоринге по-прежнему силён градиентный бустинг. Федеративный контур без Federated XGBoost почти бесполезен. Ниже — как бустинг считается, когда колонки нельзя сложить в один DMatrix.</p>
+      <details class="semantics">
+        <summary>Семантика кластера · 30 фраз</summary>
+        <ul class="tags"><li>Federated XGBoost</li><li>SecureBoost</li><li>DMatrix нельзя собрать</li><li>гистограммы сплитов</li><li>квантили признаков</li><li>градиенты бустинга</li><li>гессианы</li><li>gain кандидата</li><li>бины признаков</li><li>monotonic constraints</li><li>payload гистограмм</li><li>eval активной стороны</li><li>пассивная сторона признаков</li><li>TreeSHAP ограничения</li><li>distributed XGBoost не federated</li><li>квантилизация</li><li>гистограммный обмен</li><li>XGBoost на партнёрских данных</li><li>эксперименты OOT бустинга</li><li>сравнение с эмбеддинг бустингом</li><li>распределённый градиентный бустинг</li><li>почему классический XGBoost не работает</li><li>эксперименты метрик FL</li><li>SecureBoost сплиты</li><li>Federated XGBoost протокол</li><li>missing values в VFL</li><li>категории без словаря</li><li>seed дерева</li><li>активная сторона бустинга</li><li>бустинг без передачи исходных данных</li></ul>
+      </details>
+      <h2>Почему нельзя взять обычный distributed XGBoost</h2>
+<p>Классический distributed-режим предполагает один кластер и открытый обмен гистограммами. В федеративной постановке нельзя отдать ни строки, ни сырые гистограммы, если по ним восстанавливаются чувствительные распределения.</p>
+<p>Нужен протокол, в котором сплиты считаются совместно, исходные значения не покидают участника, а label в VFL остаётся у активной стороны — банка.</p>
+<h2>Horizontal и vertical бустинг</h2>
+<p>HFL-бустинг агрегирует локальные гистограммы градиентов и гессианов и выбирает глобальный сплит. VFL-бустинг (SecureBoost и аналоги) делит признаки по участникам. Пассивные стороны предлагают кандидатов сплита, не показывая значения. Выбор идёт по зашифрованным или анклавным статистикам. Именно VFL-бустинг нужен партнёрскому скорингу.</p>
+<p>FATE — индустриальный стандарт вертикального бустинга. NVFlare удобнее для горизонтальных сценариев. Flower гибок, но бустинг не столь зрел из коробки.</p>
+<p>В отладке смотреть: число объектов после PSI, monotonic constraints, сходимость eval-метрики у активной стороны, размер payload гистограмм, воспроизводимость при фиксированном seed.</p>
+      <section class="related"><h2>Читать далее</h2><ul><li><a href="fl-guide.html">Федеративное обучение: как обучать модели на распределённых данных</a></li><li><a href="why-classic-xgboost-fails.html">Почему классический XGBoost не работает в распределённой среде: ограничения централизованного обучения на партнёрских данных</a></li><li><a href="federated-xgboost-experiments.html">Как Federated XGBoost повышает качество модели на партнёрских данных: эксперименты, метрики и сравнение с эмбеддингами</a></li></ul></section>
+    </main>
+    <footer><a href="../plan.html">← Назад к таблице</a></footer>
+  </body>
+</html>
