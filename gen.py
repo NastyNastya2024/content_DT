@@ -213,6 +213,15 @@ def related_for(a: dict, all_a: list[dict]) -> list[dict]:
         add("train-ai-multi-company")
         add("replace-data-lake")
         add("fl-antifraud")
+    if a["slug"] == "fl-sandbox-or-embeddings":
+        add("federated-xgboost-experiments")
+        add("fl-what-is")
+        add("partner-scoring-quality")
+        add("federated-xgboost-how")
+        add("fl-antifraud")
+        add("replace-data-lake")
+        add("fate-flower-nvflare")
+        add("train-ai-multi-company")
     if a["slug"] == "tco-big-data":
         add("choose-bdp-15")
         add("vendor-lock-in")
