@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Контент-план — таблица статей</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <strong>Контент-план</strong>
+      <nav>
+        <a href="index.html">Роли</a>
+        <a href="plan.html">Таблица статей</a>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Сводка по всем статьям</h1>
+      <p class="lead">
+        Pillar — обзор хаба. Cluster — статьи на сайте. Внешние — публикация на
+        Habr, VC.ru и других площадках. Data Governance для AI входит в оба хаба.
+      </p>
+
+      <div class="toolbar">
+        <button type="button" class="active" data-filter="all">Все</button>
+        <button type="button" data-filter="pillar">Pillar</button>
+        <button type="button" data-filter="cluster">Cluster / на сайте</button>
+        <button type="button" data-filter="external">Внешние</button>
+      </div>
+
+      <h2 class="block">Федеративное обучение</h2>
+      <div class="wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Тип пользователя</th>
+              <th>Этап CJM</th>
+              <th>Тема</th>
+              <th>На сайте?</th>
+              <th>Площадка</th>
+              <th>Тип страницы</th>
+              <th>Кластер</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="pillar" data-type="pillar">
+              <td>Все</td>
+              <td>—</td>
+              <td>Федеративное обучение: полное руководство для корпоративного AI</td>
+              <td><span class="badge yes">ДА</span></td>
+              <td>—</td>
+              <td><span class="badge page-pillar">Pillar</span></td>
+              <td>Обзор</td>
+            </tr>
+            <tr data-type="external">
+              <td>CTO / CIO</td>
+              <td>Осознание</td>
+              <td>Федеративное обучение: что это такое и зачем бизнесу обучать AI без передачи данных</td>
+              <td><span class="badge no">НЕТ</span></td>
+              <td>Habr, VC.ru (гостевая)</td>
+              <td><span class="badge page-external">Внешняя</span></td>
+              <td>Введение в FL</td>
+            </tr>
+            <tr data-type="external">
+              <td>CTO / CIO</td>
+              <td>Осознание</td>
+              <td>Федеративное обучение в банках: как совместно обучать модели без обмена данными клиентов</td>
+              <td><span class="badge no">НЕТ</span></td>
+              <td>Habr, VC.ru (гостевая)</td>
+              <td><span class="badge page-external">Внешняя</span></td>
+              <td>Применение в финансах</td>
+            </tr>
+            <tr data-type="external">
+              <td>CTO / CIO</td>
+              <td>Рассмотрение</td>
+              <td>Федеративное обучение vs централизованное ML: какой подход выбрать бизнесу</td>
+              <td><span class="badge no">НЕТ</span></td>
+              <td>Habr, VC.ru</td>
+              <td><span class="badge page-external">Внешняя</span></td>
+              <td>Сравнение подходов</td>
+            </tr>
+            <tr class="cluster" data-type="cluster">
+              <td>CTO / CIO</td>
+              <td>Решение</td>
+              <td>Как конфиденциальные вычисления помогают соблюдать 152-ФЗ и GDPR при работе с AI</td>
+              <td><span class="badge yes">ДА</span></td>
+              <td>—</td>
+              <td><span class="badge page-cluster">Cluster</span></td>
+              <td>Безопасность и комплаенс</td>
+            </tr>
+            <tr data-type="external">
+              <td>CDO</td>
+              <td>Осознание</td>
+              <td>Почему банки не хотят делиться данными — и как FL меняет правила игры</td>
+              <td><span class="badge no">НЕТ</span></td>
+              <td>VC.ru, TAdviser</td>
+              <td><span class="badge page-external">Внешняя</span></td>
+              <td>Барьеры и стимулы</td>
+            </tr>
+            <tr class="cluster" data-type="cluster">
+              <td>CDO</td>
+              <td>Рассмотрение</td>
+              <td>Как объединить данные нескольких банков для скоринга и не нарушить конфиденциальность</td>
+              <td><span class="badge yes">ДА</span></td>
+              <td>—</td>
+              <td><span class="badge page-cluster">Cluster</span></td>
+              <td>Партнёрский скоринг</td>
+            </tr>
+            <tr class="cluster" data-type="cluster">
+              <td>CDO</td>
+              <td>Решение</td>
+              <td>Data Governance для AI: как управлять данными, на которых работают модели</td>
+              <td><span class="badge yes">ДА</span></td>
+              <td>—</td>
+              <td><span class="badge page-cluster">Cluster</span></td>
+              <td>Управление данными и Governance</td>
+            </tr>
+            <tr data-type="external">
+              <td>Head of AI</td>
+              <td>Осознание</td>
+              <td>Как обучать AI на данных нескольких компаний, не раскрывая исходные данные</td>
+              <td><span class="badge no">НЕТ</span></td>
+              <td>Habr, Medium</td>
+              <td><span class="badge page-external">Внешняя</span></td>
+              <td>Основы FL</td>
+            </tr>
+            <tr data-type="external">
+              <td>Head of AI</td>
+              <td>Рассмотрение</td>
+              <td>VFL или HFL: какой тип федеративного обучения подходит для финансового сектора</td>
+              <td><span class="badge no">НЕТ</span></td>
+              <td>Habr, Ultralytics</td>
+              <td><span class="badge page-external">Внешняя</span></td>
+              <td>Типы FL</td>
+            </tr>
+            <tr class="cluster" data-type="cluster">
+              <td>Head of AI</td>
+              <td>Решение</td>
+              <td>Как повысить accuracy скоринговой модели на партнёрских данных</td>
+              <td><span class="badge yes">ДА</span></td>
+              <td>—</td>
+              <td><span class="badge page-cluster">Cluster</span></td>
+              <td>Партнёрский скоринг</td>
+            </tr>
+            <tr data-type="external">
+              <td>Data Scientist</td>
+              <td>Осознание</td>
+              <td>Federated Learning простыми словами: как обучить одну модель на данных разных компаний</td>
+              <td><span class="badge no">НЕТ</span></td>
+              <td>Habr, Medium</td>
+              <td><span class="badge page-external">Внешняя</span></td>
+              <td>Введение</td>
+            </tr>
+            <tr data-type="external">
+              <td>Data Scientist</td>
+              <td>Рассмотрение</td>
+              <td>Federated XGBoost: как устроено распределённое обучение градиентного бустинга без передачи исходных данных</td>
+              <td><span class="badge no">НЕТ</span></td>
+              <td>Habr, Ultralytics</td>
+              <td><span class="badge page-external">Внешняя</span></td>
+              <td>Технические детали FL</td>
+            </tr>
+            <tr data-type="external">
+              <td>Data Scientist</td>
+              <td>Рассмотрение</td>
+              <td>Почему классический XGBoost не работает в распределённой среде: ограничения централизованного обучения на партнёрских данных</td>
+              <td><span class="badge no">НЕТ</span></td>
+              <td>Habr, Ultralytics</td>
+              <td><span class="badge page-external">Внешняя</span></td>
+              <td>Технические детали FL</td>
+            </tr>
+            <tr class="cluster" data-type="cluster">
+              <td>Data Scientist</td>
+              <td>Решение</td>
+              <td>Как Federated XGBoost повышает качество модели на партнёрских данных: эксперименты, метрики и сравнение с эмбеддингами</td>
+              <td><span class="badge yes">ДА</span></td>
+              <td>—</td>
+              <td><span class="badge page-cluster">Cluster</span></td>
+              <td>Технические детали FL</td>
+            </tr>
+            <tr data-type="external">
+              <td>CISO</td>
+              <td>Осознание</td>
+              <td>Confidential Computing: как защищать данные во время вычислений с дата-партнером</td>
+              <td><span class="badge no">НЕТ</span></td>
+              <td>Habr (Безопасность)</td>
+              <td><span class="badge page-external">Внешняя</span></td>
+              <td>Безопасность</td>
+            </tr>
+            <tr class="cluster" data-type="cluster">
+              <td>CISO</td>
+              <td>Рассмотрение</td>
+              <td>Что такое гомоморфное шифрование и как его использовать в машинном обучении</td>
+              <td><span class="badge yes">ДА</span></td>
+              <td>—</td>
+              <td><span class="badge page-cluster">Cluster</span></td>
+              <td>Шифрование и защита</td>
+            </tr>
+            <tr class="cluster" data-type="cluster">
+              <td>CISO</td>
+              <td>Решение</td>
+              <td>Аппаратная безопасность для AI: Intel SGX и Confidential Computing</td>
+              <td><span class="badge yes">ДА</span></td>
+              <td>—</td>
+              <td><span class="badge page-cluster">Cluster</span></td>
+              <td>Аппаратная безопасность</td>
+            </tr>
+            <tr data-type="external">
+              <td>CRO / Risk</td>
+              <td>Осознание</td>
+              <td>Партнёрский скоринг: как повысить качество модели за счёт данных нескольких компаний</td>
+              <td><span class="badge no">НЕТ</span></td>
+              <td>VC.ru, TAdviser</td>
+              <td><span class="badge page-external">Внешняя</span></td>
+              <td>Партнёрский скоринг</td>
+            </tr>
+            <tr class="cluster" data-type="cluster">
+              <td>CRO / Risk</td>
+              <td>Рассмотрение</td>
+              <td>Можно ли заменить централизованный Data Lake в партнёрском скоринге?</td>
+              <td><span class="badge yes">ДА</span></td>
+              <td>—</td>
+              <td><span class="badge page-cluster">Cluster</span></td>
+              <td>Партнёрский скоринг</td>
+            </tr>
+            <tr data-type="external">
+              <td>CRO / Risk</td>
+              <td>Рассмотрение</td>
+              <td>Эмбеддинги в партнёрском скоринге: почему этот подход устаревает и создаёт риски для вашей модели</td>
+              <td><span class="badge no">НЕТ</span></td>
+              <td>VC.ru, TAdviser</td>
+              <td><span class="badge page-external">Внешняя</span></td>
+              <td>Сравнение с эмбеддингами</td>
+            </tr>
+            <tr data-type="external">
+              <td>CRO / Risk</td>
+              <td>Рассмотрение</td>
+              <td>Federated Learning vs эмбеддинги: почему федеративное обучение даёт более высокий аплифт без риска утечки данных</td>
+              <td><span class="badge no">НЕТ</span></td>
+              <td>VC.ru, TAdviser</td>
+              <td><span class="badge page-external">Внешняя</span></td>
+              <td>Сравнение с эмбеддингами</td>
+            </tr>
+            <tr data-type="external">
+              <td>CRO / Risk</td>
+              <td>Рассмотрение</td>
+              <td>Партнёрский скоринг с федеративным обучением: как модель обучается на данных партнёров без передачи даже эмбеддингов</td>
+              <td><span class="badge no">НЕТ</span></td>
+              <td>VC.ru, TAdviser</td>
+              <td><span class="badge page-external">Внешняя</span></td>
+              <td>Сравнение с эмбеддингами</td>
+            </tr>
+            <tr class="cluster" data-type="cluster">
+              <td>CRO / Risk</td>
+              <td>Решение</td>
+              <td>Как федеративное обучение повышает аплифт модели на партнёрских данных: кейсы, цифры и сравнение с эмбеддингами</td>
+              <td><span class="badge yes">ДА</span></td>
+              <td>—</td>
+              <td><span class="badge page-cluster">Cluster</span></td>
+              <td>Партнёрский скоринг</td>
+            </tr>
+            <tr class="cluster" data-type="cluster">
+              <td>CRO / Risk</td>
+              <td>Решение</td>
+              <td>Федеративное обучение для антифрода: как банкам совместно находить мошеннические схемы</td>
+              <td><span class="badge yes">ДА</span></td>
+              <td>—</td>
+              <td><span class="badge page-cluster">Cluster</span></td>
+              <td>Антифрод</td>
+            </tr>
+            <tr data-type="external">
+              <td>Data Architect</td>
+              <td>Осознание</td>
+              <td>Данные остаются у владельца, модель приходит к данным: как работает FL</td>
+              <td><span class="badge no">НЕТ</span></td>
+              <td>Habr (High-load)</td>
+              <td><span class="badge page-external">Внешняя</span></td>
+              <td>Архитектура FL</td>
+            </tr>
+            <tr class="cluster" data-type="cluster">
+              <td>Data Architect</td>
+              <td>Рассмотрение</td>
+              <td>FATE, Flower или NVFlare: какой фреймворк выбрать для FL</td>
+              <td><span class="badge yes">ДА</span></td>
+              <td>—</td>
+              <td><span class="badge page-cluster">Cluster</span></td>
+              <td>Фреймворки</td>
+            </tr>
+            <tr class="cluster" data-type="cluster">
+              <td>Data Architect</td>
+              <td>Решение</td>
+              <td>Как выбрать фреймворк для FL: 10 критериев</td>
+              <td><span class="badge yes">ДА</span></td>
+              <td>—</td>
+              <td><span class="badge page-cluster">Cluster</span></td>
+              <td>Фреймворки</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="block">Big Data Platform</h2>
+      <div class="wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Тип пользователя</th>
+              <th>Этап CJM</th>
+              <th>Тема</th>
+              <th>На сайте?</th>
+              <th>Площадка</th>
+              <th>Тип страницы</th>
+              <th>Кластер</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="pillar" data-type="pillar">
+              <td>Все</td>
+              <td>—</td>
+              <td>Big Data Platform: инфраструктура данных для AI и аналитики</td>
+              <td><span class="badge yes">ДА</span></td>
+              <td>—</td>
+              <td><span class="badge page-pillar">Pillar</span></td>
+              <td>Обзор</td>
+            </tr>
+            <tr data-type="external">
+              <td>CTO / CIO</td>
+              <td>Осознание</td>
+              <td>Big Data в 2026 году: почему инфраструктура данных становится основой цифрового бизнеса</td>
+              <td><span class="badge no">НЕТ</span></td>
+              <td>VC.ru, Habr</td>
+              <td><span class="badge page-external">Внешняя</span></td>
+              <td>Стратегия и тренды</td>
+            </tr>
+            <tr class="cluster" data-type="cluster">
+              <td>CTO / CIO</td>
+              <td>Рассмотрение</td>
+              <td>Сколько стоит собственная платформа данных: считаем TCO Big Data-инфраструктуры</td>
+              <td><span class="badge yes">ДА</span></td>
+              <td>—</td>
+              <td><span class="badge page-cluster">Cluster</span></td>
+              <td>TCO и экономика</td>
+            </tr>
+            <tr class="cluster" data-type="cluster">
+              <td>CTO / CIO</td>
+              <td>Решение</td>
+              <td>Как выбрать Big Data Platform для крупного предприятия: 15 критериев оценки</td>
+              <td><span class="badge yes">ДА</span></td>
+              <td>—</td>
+              <td><span class="badge page-cluster">Cluster</span></td>
+              <td>Выбор платформы</td>
+            </tr>
+            <tr data-type="external">
+              <td>CDO</td>
+              <td>Осознание</td>
+              <td>Почему 80% успеха AI-проекта зависит от данных, а не от модели</td>
+              <td><span class="badge no">НЕТ</span></td>
+              <td>VC.ru</td>
+              <td><span class="badge page-external">Внешняя</span></td>
+              <td>Важность данных</td>
+            </tr>
+            <tr class="cluster" data-type="cluster">
+              <td>CDO</td>
+              <td>Рассмотрение</td>
+              <td>7 измерений качества данных, которые необходимо контролировать перед запуском AI</td>
+              <td><span class="badge yes">ДА</span></td>
+              <td>—</td>
+              <td><span class="badge page-cluster">Cluster</span></td>
+              <td>Качество данных</td>
+            </tr>
+            <tr class="cluster" data-type="cluster">
+              <td>CDO</td>
+              <td>Решение</td>
+              <td>Data Governance для AI: как управлять данными, на которых работают модели</td>
+              <td><span class="badge yes">ДА</span></td>
+              <td>—</td>
+              <td><span class="badge page-cluster">Cluster</span></td>
+              <td>Governance</td>
+            </tr>
+            <tr data-type="external">
+              <td>Head of AI</td>
+              <td>Осознание</td>
+              <td>AI начинается не с модели: почему качество данных важнее выбора алгоритма</td>
+              <td><span class="badge no">НЕТ</span></td>
+              <td>Habr</td>
+              <td><span class="badge page-external">Внешняя</span></td>
+              <td>Качество данных</td>
+            </tr>
+            <tr class="cluster" data-type="cluster">
+              <td>Head of AI</td>
+              <td>Рассмотрение</td>
+              <td>MLOps начинается с DataOps: почему без управления данными нельзя построить промышленный AI</td>
+              <td><span class="badge yes">ДА</span></td>
+              <td>—</td>
+              <td><span class="badge page-cluster">Cluster</span></td>
+              <td>MLOps/DataOps</td>
+            </tr>
+            <tr class="cluster" data-type="cluster">
+              <td>Head of AI</td>
+              <td>Решение</td>
+              <td>AI-ready Data Platform: какая инфраструктура нужна для корпоративного AI</td>
+              <td><span class="badge yes">ДА</span></td>
+              <td>—</td>
+              <td><span class="badge page-cluster">Cluster</span></td>
+              <td>Инфраструктура</td>
+            </tr>
+            <tr data-type="external">
+              <td>Data Scientist</td>
+              <td>Осознание</td>
+              <td>От данных к AI: как построить надёжный Data Pipeline для машинного обучения</td>
+              <td><span class="badge no">НЕТ</span></td>
+              <td>Habr, Medium</td>
+              <td><span class="badge page-external">Внешняя</span></td>
+              <td>Data Pipeline</td>
+            </tr>
+            <tr class="cluster" data-type="cluster">
+              <td>Data Scientist</td>
+              <td>Рассмотрение</td>
+              <td>Data Observability: как понять, что данные для AI внезапно стали неправильными</td>
+              <td><span class="badge yes">ДА</span></td>
+              <td>—</td>
+              <td><span class="badge page-cluster">Cluster</span></td>
+              <td>Мониторинг данных</td>
+            </tr>
+            <tr class="cluster" data-type="cluster">
+              <td>Data Scientist</td>
+              <td>Решение</td>
+              <td>Data Drift: почему данные меняются быстрее, чем AI-модели</td>
+              <td><span class="badge yes">ДА</span></td>
+              <td>—</td>
+              <td><span class="badge page-cluster">Cluster</span></td>
+              <td>Мониторинг данных</td>
+            </tr>
+            <tr data-type="external">
+              <td>CISO</td>
+              <td>Осознание</td>
+              <td>Цифровой суверенитет: почему контроль над данными становится стратегическим преимуществом</td>
+              <td><span class="badge no">НЕТ</span></td>
+              <td>VC.ru, TAdviser</td>
+              <td><span class="badge page-external">Внешняя</span></td>
+              <td>Суверенитет и импортозамещение</td>
+            </tr>
+            <tr data-type="external">
+              <td>CISO</td>
+              <td>Рассмотрение</td>
+              <td>Vendor Lock-in: сколько бизнес платит за зависимость от IT-вендора</td>
+              <td><span class="badge no">НЕТ</span></td>
+              <td>Habr, OpenNET</td>
+              <td><span class="badge page-external">Внешняя</span></td>
+              <td>Vendor Lock-in</td>
+            </tr>
+            <tr class="cluster" data-type="cluster">
+              <td>CISO</td>
+              <td>Решение</td>
+              <td>Open Source для Enterprise: почему открытый код становится вопросом цифрового суверенитета</td>
+              <td><span class="badge yes">ДА</span></td>
+              <td>—</td>
+              <td><span class="badge page-cluster">Cluster</span></td>
+              <td>Суверенитет и импортозамещение</td>
+            </tr>
+            <tr data-type="external">
+              <td>CRO / Risk</td>
+              <td>Осознание</td>
+              <td>AI для риск-менеджмента: почему качество данных определяет точность прогнозов</td>
+              <td><span class="badge no">НЕТ</span></td>
+              <td>VC.ru, TAdviser</td>
+              <td><span class="badge page-external">Внешняя</span></td>
+              <td>Риск-менеджмент</td>
+            </tr>
+            <tr class="cluster" data-type="cluster">
+              <td>CRO / Risk</td>
+              <td>Рассмотрение</td>
+              <td>Машинное обучение в банках: от качества данных до промышленной эксплуатации моделей</td>
+              <td><span class="badge yes">ДА</span></td>
+              <td>—</td>
+              <td><span class="badge page-cluster">Cluster</span></td>
+              <td>Финансовый сектор</td>
+            </tr>
+            <tr class="cluster" data-type="cluster">
+              <td>CRO / Risk</td>
+              <td>Решение</td>
+              <td>Как снизить AI-риски в банке с помощью Data Governance</td>
+              <td><span class="badge yes">ДА</span></td>
+              <td>—</td>
+              <td><span class="badge page-cluster">Cluster</span></td>
+              <td>Риск-менеджмент</td>
+            </tr>
+            <tr data-type="external">
+              <td>Data Architect</td>
+              <td>Осознание</td>
+              <td>Big Data как фундамент AI: почему инфраструктура начинается с данных</td>
+              <td><span class="badge no">НЕТ</span></td>
+              <td>Habr</td>
+              <td><span class="badge page-external">Внешняя</span></td>
+              <td>Инфраструктура</td>
+            </tr>
+            <tr class="cluster" data-type="cluster">
+              <td>Data Architect</td>
+              <td>Рассмотрение</td>
+              <td>Как масштабировать Big Data-инфраструктуру от одного кластера до федеративной архитектуры</td>
+              <td><span class="badge yes">ДА</span></td>
+              <td>—</td>
+              <td><span class="badge page-cluster">Cluster</span></td>
+              <td>Масштабирование</td>
+            </tr>
+            <tr class="cluster" data-type="cluster">
+              <td>Data Architect</td>
+              <td>Решение</td>
+              <td>Как построить отказоустойчивую Big Data-платформу без простоя</td>
+              <td><span class="badge yes">ДА</span></td>
+              <td>—</td>
+              <td><span class="badge page-cluster">Cluster</span></td>
+              <td>Надёжность</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <footer>
+      Для публикации на GitHub Pages: Settings → Pages → Deploy from branch →
+      корневая папка.
+    </footer>
+
+    <script>
+      const buttons = document.querySelectorAll(".toolbar button");
+      const rows = document.querySelectorAll("tbody tr");
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          buttons.forEach((item) => item.classList.remove("active"));
+          button.classList.add("active");
+          const filter = button.dataset.filter;
+          rows.forEach((row) => {
+            row.style.display =
+              filter === "all" || row.dataset.type === filter ? "" : "none";
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
